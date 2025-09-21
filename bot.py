@@ -3,6 +3,8 @@ import discord
 from discord.ext import commands
 import os, json, asyncio
 from dotenv import load_dotenv
+from keep_alive import keep_alive
+
 
 load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
@@ -151,4 +153,5 @@ if __name__ == "__main__":
     if not TOKEN:
         print("Vui lòng đặt DISCORD_TOKEN trong .env")
     else:
+        keep_alive()
         bot.run(os.getenv("DISCORD_TOKEN"))
